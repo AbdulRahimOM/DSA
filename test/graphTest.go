@@ -8,14 +8,17 @@ import (
 func TestGraph() {
 	// Create a new graph
 	graph := graph.NewGraph()
-	graph.AddVertex(0)
+	if err:=graph.AddVertex(0);err!=nil{
+		fmt.Println("error on adding vertex:",err)
+	}
 	graph.AddVertex(1)
 	graph.AddVertex(2)
 	graph.AddVertex(3)
-	// graph.AddVertex(2)
 
 	// Add edges to the graph
-	graph.AddEdge(0, 1)
+	if err:=graph.AddEdge(0, 1);err!=nil{
+		fmt.Println("error on adding vertex:",err)
+	}
 	graph.AddEdge(0, 2)
 	graph.AddEdge(1, 2)
 	graph.AddEdge(2, 3)

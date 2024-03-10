@@ -24,15 +24,12 @@ func (graph *Graph) AddVertex(value int) error {
 
 func (graph *Graph) AddEdge(from, to int) error {
 	if _, ok := graph.adjacency[to]; !ok {
-		fmt.Println("to vertex doesn't exists")
 		return fmt.Errorf("to vertex doesn't exists")
 	}
 	if edges, ok := graph.adjacency[from]; !ok {
-		fmt.Println("from vertex doesn't exists")
 		return fmt.Errorf("from vertex doesn't exists")
 	} else {
 		if contains(edges, to) {
-			fmt.Println("edge already exist")
 			return fmt.Errorf("edge already exist")
 		} else {
 			graph.adjacency[from] = append(edges, to)
