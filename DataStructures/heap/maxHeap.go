@@ -35,7 +35,7 @@ func (h *MaxHeap) ExtractMax() (int, error) {
 	maxValue := h.array[0]
 	h.array[0] = h.array[lastIndex]
 	h.array = h.array[:lastIndex]
-	h.heapifyDown(0, lastIndex-1)
+	h.HeapifyDown(0, lastIndex-1)
 	return maxValue, nil
 }
 func (h *MaxHeap) Delete(value int) bool {
@@ -47,7 +47,7 @@ func (h *MaxHeap) Delete(value int) bool {
 			lastIndex := len(h.array)
 			h.array[i] = h.array[lastIndex]
 			h.array = h.array[:lastIndex]
-			h.heapifyDown(i, lastIndex-1)
+			h.HeapifyDown(i, lastIndex-1)
 			return true
 		}
 	}
@@ -57,33 +57,15 @@ func (h *MaxHeap) Delete(value int) bool {
 func (h *MaxHeap) BuildHeap(arr []int) {
 	h.array = arr
 	lastIndex := len(h.array) - 1
-	for i := (lastIndex) / 2; i >= 0; i-- {
-		h.heapifyDown(i, lastIndex)
+	for i := (lastIndex-1) / 2; i >= 0; i-- {
+		h.HeapifyDown(i, lastIndex)
 	}
 }
 func (h *MaxHeap) PrintAsTree() {
 	tools.PrintArrayAsBinaryTree(h.array)
 }
 
-
-func HeapSortAsc(array []int) {
-	h := &MaxHeap{
-		array: array,
-	}
-	lastIndex := len(array) - 1
-	for i := (lastIndex - 1) / 2; i >= 0; i-- {
-		h.heapifyDown(i, lastIndex)
-	}
-
-	for i := lastIndex; i >= 0; i-- {
-		array[0], array[i] = array[i], array[0]
-
-		h.heapifyDown(0, i-1)
-	}
-
-}
-
-func (h *MaxHeap) heapifyDown(parent int, indexLimit int) {
+func (h *MaxHeap) HeapifyDown(parent int, indexLimit int) {
 	var maxIndex int
 	left := 2*parent + 1
 	right := 2*parent + 2
@@ -99,7 +81,7 @@ func (h *MaxHeap) heapifyDown(parent int, indexLimit int) {
 	} else {
 		return
 	}
-	
+
 	h.array[parent], h.array[maxIndex] = h.array[maxIndex], h.array[parent]
-	h.heapifyDown(maxIndex, indexLimit)
+	h.HeapifyDown(maxIndex, indexLimit)
 }

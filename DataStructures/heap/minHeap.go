@@ -39,7 +39,7 @@ func (h *MinHeap) ExtractMin() (int, error) {
 	lastIndex := len(h.array) - 1
 	h.array[0] = h.array[lastIndex]
 	h.array = h.array[:lastIndex]
-	h.heapifyDown(0, lastIndex-1)
+	h.HeapifyDown(0, lastIndex-1)
 	return minValue, nil
 }
 func (h *MinHeap) Delete(value int) bool {
@@ -51,14 +51,14 @@ func (h *MinHeap) Delete(value int) bool {
 			lastIndex := len(h.array) - 1
 			h.array[i] = h.array[lastIndex]
 			h.array = h.array[:lastIndex]
-			h.heapifyDown(i, lastIndex-1)
+			h.HeapifyDown(i, lastIndex-1)
 			return true
 		}
 	}
 	return false
 }
 
-func (h *MinHeap) heapifyDown(parent int, lastIndex int) {
+func (h *MinHeap) HeapifyDown(parent int, lastIndex int) {
 	leftChildIndex := 2*parent + 1
 	rightChildIndex := 2*parent + 2
 	var minIndex int
@@ -75,31 +75,13 @@ func (h *MinHeap) heapifyDown(parent int, lastIndex int) {
 		return
 	}
 	h.array[parent], h.array[minIndex] = h.array[minIndex], h.array[parent]
-	h.heapifyDown(minIndex, lastIndex)
+	h.HeapifyDown(minIndex, lastIndex)
 }
 
 func (h *MinHeap) BuildHeap(arr []int) {
 	h.array = arr
 	lastIndex := len(h.array) - 1
-	for i := (lastIndex) / 2; i >= 0; i-- {
-		h.heapifyDown(i, lastIndex)
+	for i := (lastIndex-1) / 2; i >= 0; i-- {
+		h.HeapifyDown(i, lastIndex)
 	}
-}
-
-
-func HeapSortDesc(array []int) {
-	h := &MinHeap{
-		array: array,
-	}
-	lastIndex := len(array) - 1
-	for i := (lastIndex - 1) / 2; i >= 0; i-- {
-		h.heapifyDown(i, lastIndex)
-	}
-
-	for i := lastIndex; i >= 0; i-- {
-		array[0], array[i] = array[i], array[0]
-
-		h.heapifyDown(0, i-1)
-	}
-
 }

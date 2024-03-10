@@ -1,7 +1,7 @@
 package test
 
 import (
-	"DSA/DataStructures/heap"
+	"DSA/sort"
 	"DSA/tools"
 	"fmt"
 )
@@ -13,7 +13,7 @@ func TestHeapSort() {
 	arr := tools.GenerateRandomIntSlice(10, 20)
 	fmt.Println("Original array:", arr)
 
-	heap.HeapSortAsc(arr)
+	sort.HeapSortAsc(arr)
 
 	fmt.Println("Sorted array:", arr)
 
@@ -21,7 +21,7 @@ func TestHeapSort() {
 	arr2 := tools.GenerateRandomIntSlice(10, 20)
 	fmt.Println("Original array:", arr2)
 
-	heap.HeapSortDesc(arr2)
+	sort.HeapSortDesc(arr2)
 
 	fmt.Println("Sorted array:", arr2)
 }
