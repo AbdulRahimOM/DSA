@@ -3,7 +3,9 @@ package main
 import "DSA/test"
 
 func main() {
-	// // test.TestTrie()
-	test.TestGraph()
-	// test.TestHeapSort()
+    test.TestBST()
+	test.TestTrie()
+	test.TestHeapSort()
+	test.TestGraph1()
+	test.TestGraph2()
 }
