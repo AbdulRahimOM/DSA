@@ -27,11 +27,6 @@ func InitiateTreeWithRootNode(root *treeNode) *tree {
 	}
 }
 func (tree *tree) PrintTree() {
-	if tree.root.left==nil{
-		fmt.Println("tree.root.left==nil")
-	}else{
-		fmt.Println("tree.root.left=",tree.root.left)
-	}
 	if tree.root != nil {
 		tree.root.printThrough("")
 	}

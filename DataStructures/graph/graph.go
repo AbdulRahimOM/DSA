@@ -6,7 +6,7 @@ import (
 
 type Graph map[int][]int
 
-func (graph *Graph) BFS(start int) {
+func (graph *Graph) LookUpByBFS(start int) {
 
 	queue := []int{start}
 	visited := map[int]bool{start: true}
@@ -23,16 +23,16 @@ func (graph *Graph) BFS(start int) {
 	}
 }
 
-func (graph *Graph) DFS(node int){
-	graph.dfs(node,make(map[int]bool))
+func (graph *Graph) LookUpByDFS(node int) {
+	graph.dfs(node, make(map[int]bool))
 }
 
 func (graph *Graph) dfs(node int, visited map[int]bool) {
-	visited[node]=true
+	visited[node] = true
 	fmt.Println("Visited node:", node)
-	for _,relative:=range (*graph)[node]{
-		if !visited[relative]{
-			graph.dfs(relative,visited)
+	for _, relative := range (*graph)[node] {
+		if !visited[relative] {
+			graph.dfs(relative, visited)
 		}
 	}
 }

@@ -23,11 +23,11 @@ func TestGraph1() {
 
 	// Perform DFS starting from node 0
 	fmt.Println("DFS:")
-	graph.DFS(0)
+	graph.LookUpByDFS(0)
 
-	// Perform BFS starting from node 0
+	// Perform LookUpByBFS starting from node 0
 	fmt.Println("\nBFS:")
-	graph.BFS(0)
+	graph.LookUpByBFS(0)
 }
 
 func TestGraph2() {
@@ -55,9 +55,9 @@ func TestGraph2() {
 
 	// Perform DFS starting from node 0
 	fmt.Println("DFS:")
-	graph.DFS(0)
+	graph.LookUpByDFS(0)
 
-	// Perform BFS starting from node 0
+	// Perform LookUpByBFS starting from node 0
 	fmt.Println("\nBFS:")
-	graph.BFS(0)
+	graph.LookUpByBFS(0)
 }

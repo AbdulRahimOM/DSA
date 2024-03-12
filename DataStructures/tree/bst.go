@@ -8,24 +8,27 @@ func (bst *tree) InsertIntoBST(value int) {
 	newNode := &treeNode{
 		data: value,
 	}
-	current := bst.root
-	if current == nil {
+	if bst.root == nil {
 		bst.root = newNode
 		return
 	}
+
+	current := bst.root
 	for current != nil {
 		if value < current.data {
 			if current.left == nil {
 				current.left = newNode
 				return
+			} else {
+				current = current.left
 			}
-			current = current.left
 		} else if value > current.data {
 			if current.right == nil {
 				current.right = newNode
 				return
+			} else {
+				current = current.right
 			}
-			current = current.right
 		} else { //case of 'equal value'
 			return
 		}
