@@ -14,7 +14,7 @@ type LinkedList struct {
 	head *node
 }
 
-func (list *LinkedList) AddValue(value int) {
+func (list *LinkedList) InsertAtTail(value int) {
 	newnode := &node{data: value}
 
 	if list.head == nil {
@@ -28,19 +28,14 @@ func (list *LinkedList) AddValue(value int) {
 	}
 }
 
-// display list
-func (list *LinkedList) Display() {
+// Print list
+func (list *LinkedList) PrintList() {
 	current := list.head
 	for current != nil {
 		fmt.Print(current.data, ",")
 		current = current.next
 	}
 	fmt.Println()
-}
-
-// PrintInOrder is alias of Display()
-func (list *LinkedList) PrintInOrder() {
-	list.Display()
 }
 
 func (list *LinkedList) PrintReverse() {
@@ -162,58 +157,4 @@ func (list *LinkedList) RemoveDuplicatesFromSortedList() {
 			current = current.next
 		}
 	}
-}
-
-func main() {
-	list := LinkedList{}
-	list.AddValue(10)
-	list.AddValue(10)
-	list.AddValue(20)
-	list.AddValue(35)
-	list.AddValue(40)
-	list.AddValue(40)
-
-	print("Initial list:")
-	list.Display()
-
-	list.RemoveDuplicatesFromSortedList()
-	fmt.Print("after removing dupklictes in sorted case, :")
-	list.Display()
-
-	if err := list.DeleteValue(40); err != nil {
-		fmt.Println("error:", err)
-	} else {
-		print("After dstrLetion:")
-		list.Display()
-	}
-
-	list.AddAtBeginning(22)
-	print("after inseriotng at betginning: ")
-	list.Display()
-
-	if err := list.InsertAfterValue(150, 12); err != nil {
-		fmt.Println("error on inserting after value, error:", err)
-	} else {
-		fmt.Print("after inserting after a value:	")
-		list.Display()
-	}
-
-	if err := list.InsertBeforeValue(22, 111); err != nil {
-		fmt.Println("error on inserting before value, error:", err)
-	} else {
-		fmt.Print("after inserting before a value:	")
-		list.Display()
-	}
-
-	fmt.Print("Printing in reverse:	")
-	list.PrintReverse()
-	list.PrintReverse2()
-
-	fmt.Println("After dstrLeting middle")
-	list.DeleteMiddle()
-	list.Display()
-	a := 33
-	b := 44
-	a, b = b, a
-	fmt.Println("a=", a, "b=", b)
 }

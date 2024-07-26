@@ -69,7 +69,7 @@ func (n *treeNode) deleteMinValueNode() int {
 	return minValue
 }
 
-func (bst *tree) Contains(key int) bool {
+func (bst *tree) Search(key int) bool {
 	current := bst.root
 	for current != nil {
 		if key < current.data {
@@ -82,44 +82,7 @@ func (bst *tree) Contains(key int) bool {
 	}
 	return false
 }
-func (bst *tree) InorderTraversal() {
-	bst.root.inorderTraversalThroughNodes()
-	fmt.Println()
-}
-func (n *treeNode) inorderTraversalThroughNodes() {
-	if n == nil {
-		return
-	}
-	n.left.inorderTraversalThroughNodes()
-	fmt.Print(n.data, ",")
-	n.right.inorderTraversalThroughNodes()
-}
-func (bst *tree) PreOrderTraversal() {
-	bst.root.preOrderTraversalThroughNodes()
-	fmt.Println()
-}
-func (n *treeNode) preOrderTraversalThroughNodes() {
-	if n == nil {
-		return
-	}
 
-	fmt.Print(n.data, ",")
-	n.left.preOrderTraversalThroughNodes()
-	n.right.preOrderTraversalThroughNodes()
-}
-func (bst *tree) PostOrderTraversal() {
-	bst.root.postOrderTraversalThroughNodes()
-	fmt.Println()
-}
-func (n *treeNode) postOrderTraversalThroughNodes() {
-	if n == nil {
-		return
-	}
-
-	n.left.postOrderTraversalThroughNodes()
-	n.right.postOrderTraversalThroughNodes()
-	fmt.Print(n.data, ",")
-}
 func abs(x int) int {
 	if x < 0 {
 		return -x

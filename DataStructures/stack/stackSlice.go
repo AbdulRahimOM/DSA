@@ -1,7 +1,7 @@
 package stack
 
 import (
-	types "DSA/types"
+	types "DSA/DataStructures"
 	"fmt"
 	"testing"
 )
